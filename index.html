@@ -1,296 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P6DG786J');</script>
-  <meta charset="UTF-8" />
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P6DG786J');</script>
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>ARMORY · Reproductor de Música Online Sin Anuncios</title>
+  <title>ARMORY · Reproductor de Música Online Sin Anuncios para Android</title>
   <meta name="google-site-verification" content="-9FbGvZm0ZYD9F7A_J0dyfQNj1uISWkX8Z082tdaQYU" />
   <meta name="description" content="ARMORY es el reproductor de música online sin anuncios para Android. Streaming de alta calidad, listas de reproducción personalizadas y experiencia premium 100% gratis." />
-  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  
   <style>
-    /* VARIABLES Y RESETEO RADICAL */
-    :root {
-      --negro: #050505;
-      --dorado: #d4af37;
-      --blanco: #f5f5f5;
-    }
+    /* 1. RESPONSIVE EXACTO AL TUYO ORIGINAL 
+      2. ESTÉTICA "RUBÉN HIDALGO": Mayúsculas, bordes afilados, sin sombras, dorado plano y tipografía gigante.
+    */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: hsl(0 0% 3%);
+      --card: hsl(0 0% 5%);
+      --border: hsl(43 30% 18%);
+      --primary: #d4af37; /* Dorado sólido */
+      --foreground: hsl(30 20% 95%);
+      --muted: hsl(0 0% 60%);
+      --gradient-fire: var(--primary); /* Eliminamos degradados para el look plano y serio */
+      --gradient-glow: none; /* Eliminamos brillos traseros */
+      --shadow-fire: none;
+      --radius: 0px; /* Bordes totalmente rectos */
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     html { scroll-behavior: smooth; }
-    body { 
-      font-family: 'Inter', sans-serif; 
-      background-color: var(--negro); 
-      color: var(--blanco); 
-      overflow-x: hidden;
-      width: 100%; /* Evita el scroll horizontal */
-    }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--foreground); min-height: 100vh; line-height: 1.6; }
     
-    /* NAVEGACIÓN TIPO RUBÉN HIDALGO */
-    header {
-      position: absolute; top: 0; left: 0; width: 100%; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 2rem 4rem;
-    }
-    .logo {
-      font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 900;
-      color: var(--blanco); text-decoration: none; letter-spacing: 2px;
-    }
-    .menu-links { display: flex; gap: 3rem; list-style: none; }
-    .menu-links a { 
-      color: var(--blanco); text-decoration: none; text-transform: uppercase; 
-      font-size: 0.8rem; letter-spacing: 1px; transition: color 0.3s;
-    }
-    .menu-links a:hover { color: var(--dorado); }
+    /* TIPOGRAFÍA IMPACTANTE */
+    h1, h2, h3, .font-display { font-family: 'Orbitron', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+    a { text-decoration: none; color: inherit; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .text-gradient { color: var(--primary); -webkit-text-stroke: 1px var(--primary); }
     
-    /* BOTONES */
-    .btn {
-      display: inline-block; padding: 1rem 3rem; text-decoration: none; text-transform: uppercase;
-      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 2px;
-      border: 1px solid var(--dorado); transition: all 0.4s;
-    }
-    .btn-dorado { background: var(--dorado); color: var(--negro); }
-    .btn-dorado:hover { background: transparent; color: var(--dorado); }
-    .btn-outline { background: transparent; color: var(--dorado); }
-    .btn-outline:hover { background: var(--dorado); color: var(--negro); }
-
-    /* SECCIÓN HERO (100% PANTALLA) */
-    .hero {
-      height: 100vh; width: 100%; position: relative;
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      background: url('https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-    }
-    .hero::after {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(5, 5, 5, 0.75); z-index: 1; 
-    }
-    .hero-content { position: relative; z-index: 2; padding: 0 1.5rem; width: 100%; }
-    .hero-subtitle {
-      color: var(--dorado); font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; display: block;
-    }
-    .hero-title {
-      font-family: 'Orbitron', sans-serif; font-size: clamp(2.2rem, 8vw, 6rem); 
-      line-height: 1.1; text-transform: uppercase; margin-bottom: 2rem; color: var(--blanco);
-    }
-    .hero-title span { display: block; color: transparent; -webkit-text-stroke: 1px var(--dorado); }
-
-    /* SECCIONES DIVIDIDAS (EDGE TO EDGE) */
-    .rh-split { display: flex; flex-wrap: wrap; width: 100%; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
-    .rh-split > div { width: 50%; min-height: 70vh; }
+    /* BOTONES ESTILO RH */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-family: 'Orbitron', sans-serif; font-weight: 700; border-radius: var(--radius); cursor: pointer; transition: var(--transition); border: none; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
+    .btn-primary { background: var(--primary); color: var(--bg); padding: 0.75rem 1.75rem; font-size: 0.9rem; }
+    .btn-primary:hover { background: var(--foreground); color: var(--bg); }
+    .btn-outline { background: transparent; color: var(--primary); border: 1px solid var(--primary); padding: 0.75rem 1.75rem; font-size: 0.9rem; }
+    .btn-outline:hover { background: var(--primary); color: var(--bg); }
+    .btn-sm { padding: 0.5rem 1rem; font-size: 0.78rem; }
+    .btn-lg { padding: 1rem 2.5rem; font-size: 1rem; min-height: 56px; }
     
-    .rh-text {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 6rem 10%; background: var(--negro);
-    }
-    .rh-text h2 {
-      font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 4vw, 3.5rem);
-      color: var(--blanco); text-transform: uppercase; line-height: 1.2; margin-bottom: 1.5rem;
-    }
-    .rh-text p { color: #a0a0a0; font-size: 1rem; line-height: 1.8; margin-bottom: 3rem; }
+    /* NAVEGACIÓN ORIGINAL */
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; backdrop-filter: blur(20px); background: hsl(0 0% 4% / 0.9); border-bottom: 1px solid var(--border); }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.875rem 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .nav-logo { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 900; letter-spacing: 0.15em; color: var(--primary); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; color: var(--muted); transition: var(--transition); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
+    .nav-links a:hover { color: var(--primary); }
+    @media (max-width: 768px) { .nav-links { display: none; } }
     
-    .rh-image {
-      background: #111; display: flex; align-items: center; justify-content: center;
-      color: var(--dorado); font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;
-      border-left: 1px solid rgba(212, 175, 55, 0.2);
-    }
-    .reverse { flex-direction: row-reverse; }
-    .reverse .rh-image { border-left: none; border-right: 1px solid rgba(212, 175, 55, 0.2); }
-
-    /* CINTAS ANIMADAS (MARQUEE) */
-    .marquee {
-      width: 100%; overflow: hidden; background: var(--dorado); color: var(--negro);
-      padding: 1.5rem 0; display: flex; white-space: nowrap;
-    }
-    .marquee-content {
-      font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(1.2rem, 4vw, 2rem);
-      text-transform: uppercase; letter-spacing: 2px;
-      animation: scroll 20s linear infinite; display: inline-block;
-    }
-    .marquee-content span { margin: 0 2rem; }
-    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-    /* CONTACTO / DESCARGA FULL WIDTH */
-    .cta-full {
-      padding: 8rem 1.5rem; text-align: center; background: var(--negro); width: 100%;
-    }
-    .cta-full h2 {
-      font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem);
-      color: var(--blanco); text-transform: uppercase; margin-bottom: 3rem; line-height: 1.1;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 3rem 1.5rem; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2); width: 100%;
-    }
-    .footer-email {
-      font-family: 'Orbitron', sans-serif; font-size: clamp(1.2rem, 4vw, 1.5rem); color: var(--dorado); 
-      text-decoration: none; display: block; margin-bottom: 1.5rem;
-    }
-    .footer-copy { color: #555; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
-
-    /* =========================================
-       RESPONSIVE (MÓVILES Y TABLETS PEQUEÑAS)
-       ========================================= */
-    @media (max-width: 900px) { 
-      header { padding: 1.5rem; }
-      .menu-links { display: none; } 
-      
-      .rh-split > div { 
-        width: 100%; 
-        min-height: auto; /* Anula el 70vh fijo en móviles */
-      }
-      
-      .rh-text { 
-        padding: 4rem 2rem; 
-        text-align: center; /* Centrado en móviles funciona mejor visualmente */
-        align-items: center;
-      }
-      
-      .rh-image { 
-        min-height: 40vh; /* Altura mínima para que la imagen se vea bien */
-        border-left: none;
-        border-top: 1px solid rgba(212, 175, 55, 0.2);
-      }
-      
-      .reverse .rh-image { 
-        border-right: none; 
-      }
-      
-      .cta-full {
-        padding: 5rem 1.5rem;
-      }
-    }
+    /* HERO ORIGINAL (Mismas celdas y medidas) */
+    .hero { padding: 7rem 0 4rem; overflow: hidden; }
+    @media (min-width: 768px) { .hero { padding: 10rem 0 6rem; } }
+    .hero-grid { display: grid; gap: 3rem; align-items: center; }
+    @media (min-width: 768px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
+    .hero-badge { display: inline-block; padding: 0.3rem 0.9rem; border: 1px solid var(--primary); color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; margin-bottom: 1.5rem; text-transform: uppercase; }
+    
+    /* Tipografía gigante en el Hero */
+    .hero-title { font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 900; line-height: 1; margin-bottom: 1.5rem; }
+    .hero-desc { color: var(--muted); font-size: 1rem; max-width: 540px; margin-bottom: 2rem; line-height: 1.7; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: var(--primary); display: block; }
+    .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* Imagen Hero Original */
+    .hero-img-wrap { position: relative; max-width: 500px; margin: 0 auto; }
+    .hero-img { position: relative; width: 100%; box-shadow: none; border: 1px solid var(--border); background: var(--card); aspect-ratio: 3/2; display: flex; align-items: center; justify-content: center; }
+    .hero-img-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; color: var(--muted); text-align: center; padding: 2rem; }
+    .hero-img-inner svg { opacity: 0.5; stroke: var(--primary); }
+    .hero-img-inner span { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--primary); }
+    
+    /* SECCIONES ORIGINALES */
+    .section { padding: 5rem 0; }
+    @media (min-width: 768px) { .section { padding: 8rem 0; } }
+    .section-bg { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-label { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--primary); margin-bottom: 0.75rem; text-transform: uppercase; }
+    
+    /* Títulos de sección gigantes */
+    .section-title { font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1rem; line-height: 1.1; }
+    .section-desc { color: var(--muted); max-width: 480px; }
+    .section-header { margin-bottom: 3.5rem; }
+    
+    /* GRID DE CARACTERÍSTICAS ORIGINAL */
+    .features-grid { display: grid; gap: 1.25rem; }
+    @media (min-width: 640px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .features-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .feature-card { background: var(--bg); border: 1px solid var(--border); padding: 2rem; transition: var(--transition); }
+    .feature-card:hover { border-color: var(--primary); }
+    .feature-icon { width: 3rem; height: 3rem; border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; transition: var(--transition); }
+    .feature-icon svg { width: 1.4rem; height: 1.4rem; fill: var(--primary); }
+    .feature-title { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--foreground); }
+    .feature-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    
+    /* GALERÍA ORIGINAL */
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+    .gallery-item { aspect-ratio: 9/16; border: 1px solid var(--border); background: var(--card); display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+    .gallery-item:hover { border-color: var(--primary); }
+    .gallery-item-inner { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; padding: 1rem; }
+    .gallery-dot { width: 2.5rem; height: 2.5rem; border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; }
+    .gallery-dot svg { width: 1rem; height: 1rem; fill: var(--primary); }
+    .gallery-label { font-family: 'Orbitron', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--primary); }
+    .gallery-sub { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; }
+    
+    /* FAQ ORIGINAL */
+    .faq-wrap { max-width: 720px; margin: 0 auto; }
+    .faq-header { text-align: center; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { width: 100%; background: none; border: none; color: var(--foreground); font-family: 'Orbitron', sans-serif; font-size: 0.95rem; font-weight: 600; text-align: left; padding: 1.5rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: var(--transition); line-height: 1.4; text-transform: uppercase; }
+    .faq-question:hover { color: var(--primary); }
+    .faq-chevron { width: 1rem; height: 1rem; flex-shrink: 0; transition: transform 0.3s ease; fill: none; stroke: currentColor; stroke-width: 2.5; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--primary); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer-inner { font-size: 0.95rem; color: var(--muted); padding-bottom: 1.5rem; line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    
+    /* CAJA DE DESCARGA ORIGINAL */
+    .download-card { position: relative; border: 1px solid var(--border); background: var(--bg); padding: 5rem 2rem; text-align: center; }
+    .download-label { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; }
+    .download-title { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; }
+    .download-desc { color: var(--muted); max-width: 480px; margin: 0 auto 2.5rem; font-size: 1rem; }
+    .download-note { font-size: 0.75rem; color: var(--muted); margin-top: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* FOOTER ORIGINAL */
+    footer { border-top: 1px solid var(--border); padding: 3rem 0; background: var(--bg); }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+    @media (min-width: 768px) { .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
+    .footer-logo { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 900; letter-spacing: 0.15em; color: var(--primary); }
+    .footer-copy { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* ANIMACIONES BASE */
+    @keyframes float-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-float-up { animation: float-up 0.8s ease-out both; }
+    .delay-1 { animation-delay: 0.2s; }
+    .rel { position: relative; z-index: 2; }
   </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6DG786J"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
-  <a href="#top" class="logo">ARMORY</a>
-  <ul class="nav-links">
-    <li><a href="#experiencia">Experiencia</a></li>
-    <li><a href="#caracteristicas">Tecnología</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-  <a href="#descargar" class="btn btn-outline nav-contact">Descargar APK</a>
+  <nav>
+    <a href="#top" class="nav-logo">ARMORY</a>
+    <ul class="nav-links">
+      <li><a href="#features">Características</a></li>
+      <li><a href="#gallery">Galería</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#download">Descargar</a></li>
+    </ul>
+    <a href="#download" class="btn btn-primary btn-sm">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      APK
+    </a>
+  </nav>
 </header>
 
 <main id="top">
 
   <section class="hero">
-    <h1 class="hero-title">La música<br><span class="outline">en su máxima</span><br>expresión</h1>
-    <p class="hero-desc">ARMORY es el reproductor de música online para Android. Streaming de alta calidad, listas de reproducción personalizadas y una experiencia premium 100% gratis. Música blindada en oro y acero.</p>
-    <a href="#descargar" class="btn btn-primary">Descargar Ahora</a>
-  </section>
-
-  <div class="marquee-wrapper border-top">
-    <div class="marquee-content">
-      <span>ARMORY - LIVE MUSIC</span><span>SIN ANUNCIOS</span><span>ANDROID APK</span><span>ARMORY - LIVE MUSIC</span><span>SIN ANUNCIOS</span><span>ANDROID APK</span><span>ARMORY - LIVE MUSIC</span><span>SIN ANUNCIOS</span><span>ANDROID APK</span>
-    </div>
-  </div>
-
-  <section id="experiencia" class="split">
-    <div class="split-text">
-      <h2 class="split-title">Streaming de alta calidad sin anuncios</h2>
-      <p class="split-desc">Reproducción impecable en cualquier dispositivo. ARMORY es el reproductor diseñado para quienes exigen lo mejor: música online, sin pausas comerciales, ofreciendo un entorno inmersivo que no deja indiferente a nadie.</p>
-      <div><a href="#descargar" class="btn btn-outline">Más información</a></div>
-    </div>
-    <div class="split-image">
-      <div class="img-placeholder">Sustituir por captura de la app reproduciendo música</div>
-    </div>
-  </section>
-
-  <section class="split reverse">
-    <div class="split-text">
-      <h2 class="split-title">Diseño dorado minimalista</h2>
-      <p class="split-desc">Una interfaz construida al milímetro. Disfruta de un entorno visual elegante y oscuro, optimizado para no cansar la vista y destacar lo que realmente importa: tu biblioteca musical personalizada.</p>
-      <div><a href="#descargar" class="btn btn-outline">Ver galería</a></div>
-    </div>
-    <div class="split-image">
-      <div class="img-placeholder">Sustituir por captura de las playlists</div>
-    </div>
-  </section>
-
-  <div class="marquee-wrapper gold">
-    <div class="marquee-content">
-      <span>LA MAGIA DE LA MÚSICA LLEVADA A SU MÁXIMA EXPRESIÓN</span><span>LA MAGIA DE LA MÚSICA LLEVADA A SU MÁXIMA EXPRESIÓN</span><span>LA MAGIA DE LA MÚSICA LLEVADA A SU MÁXIMA EXPRESIÓN</span>
-    </div>
-  </div>
-
-  <section id="caracteristicas" class="features-section">
-    <h3 class="features-header">Tecnología Premium Gratuita</h3>
-    <div class="features-grid">
-      <div class="feature-item">
-        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div>
-        <span class="feature-name">Alta Fidelidad</span>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <span class="feature-name">Sin Interrupciones</span>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 15V6M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM12 12H3M16 6H3M12 18H3"/></svg></div>
-        <span class="feature-name">Playlists Creadas</span>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <span class="feature-name">Rendimiento Extremo</span>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M12 12a0 0 0 1 0 .001 0A0 0 0 0 0 12 12zm0 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg></div>
-        <span class="feature-name">Descubrimiento</span>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
-        <span class="feature-name">UI / UX Premium</span>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="animate-float-up">
+          <span class="hero-badge">v2.0 · ANDROID · GRATIS</span>
+          <h1 class="hero-title">Reproductor<br>de Música<br><span class="text-gradient">Sin Anuncios</span></h1>
+          <p class="hero-desc">ARMORY es el reproductor de música online sin anuncios para Android: streaming de alta calidad, listas de reproducción personalizadas y una experiencia premium 100% gratis. Música sin interrupciones, blindada en oro y acero.</p>
+          <div class="hero-btns">
+            <a href="#download" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Descargar APK
+            </a>
+            <a href="#features" class="btn btn-outline btn-lg">Descubrir</a>
+          </div>
+          <div class="hero-stats">
+            <div><span class="stat-value">50K+</span><span class="stat-label">Descargas</span></div>
+            <div><span class="stat-value">4.9★</span><span class="stat-label">Valoración</span></div>
+            <div><span class="stat-value">30MB</span><span class="stat-label">Ligero</span></div>
+          </div>
+        </div>
+        <div class="hero-img-wrap animate-float-up delay-1">
+          <div class="hero-img">
+            <div class="hero-img-inner">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <span>ARMORY PLAYER</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="faq" class="faq-section">
-    <h2 class="faq-title">Preguntas Frecuentes</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">¿ARMORY es realmente un reproductor de música gratis y sin anuncios?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Sí. ARMORY es un reproductor de música online 100% gratis, sin anuncios, sin compras integradas y sin suscripciones. Una experiencia premium sin pagar ni un céntimo.</div></div>
+  <section id="features" class="section section-bg">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">// CARACTERÍSTICAS</p>
+        <h2 class="section-title">Experiencia Premium.</h2>
+        <p class="section-desc">Todo lo que esperas de un reproductor de pago, sin pagar nada y sin anuncios.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Cuánto pesa la APK de ARMORY para Android?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer"><div class="faq-answer-inner">La APK de ARMORY pesa entre 30 y 50 MB, una descarga ligera y rápida de instalar en cualquier Android moderno.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Necesito conexión a internet para usar ARMORY?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Sí. ARMORY es un reproductor de música online basado en streaming, por lo que requiere conexión a internet para reproducir tu música sin interrupciones.</div></div>
+      <div class="features-grid">
+        <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><h3 class="feature-title">Streaming Alta Calidad</h3><p class="feature-desc">Reproduce música online en alta fidelidad directamente desde tu Android, sin descargas ni esperas.</p></article>
+        <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 15V6M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM12 12H3M16 6H3M12 18H3"/></svg></div><h3 class="feature-title">Listas Personalizadas</h3><p class="feature-desc">Crea, organiza y comparte tus playlists favoritas para cada momento: entrenar, estudiar o viajar.</p></article>
+        <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="feature-title">Sin Interrupciones</h3><p class="feature-desc">Disfruta de música gratis sin anuncios, sin pausas y sin distracciones. Una experiencia premium real.</p></article>
+        <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3 class="feature-title">Rendimiento Extremo</h3><p class="feature-desc">Arranque instantáneo y consumo mínimo de batería. Diseñado para fluir en cualquier Android moderno.</p></article>
+        <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div><h3 class="feature-title">Diseño Minimalista</h3><p class="feature-desc">Una interfaz negra y dorada cuidada al milímetro que convierte tu reproductor en una pieza digital elegante.</p></article>
+        <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M12 12a0 0 0 1 0 .001 0A0 0 0 0 0 12 12zm0 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg></div><h3 class="feature-title">Descubre Nueva Música</h3><p class="feature-desc">Explora recomendaciones inteligentes y amplía tu biblioteca con artistas que encajan con tu estilo.</p></article>
       </div>
     </div>
   </section>
 
-  <section id="descargar" class="giant-cta">
-    <h2 class="giant-cta-title"><span class="outline">Equípate</span> con ARMORY</h2>
-    <a href="#" download class="btn btn-primary">Descargar APK · v2.0</a>
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">// GALERÍA</p>
+        <h2 class="section-title">Interfaz de la App.</h2>
+        <p class="section-desc">Reemplaza estas plantillas con tus propias capturas de ARMORY cuando quieras.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><div class="gallery-item-inner"><div class="gallery-dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><p class="gallery-label">PLANTILLA 01</p><p class="gallery-sub">Sustituir imagen</p></div></div>
+        <div class="gallery-item"><div class="gallery-item-inner"><div class="gallery-dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><p class="gallery-label">PLANTILLA 02</p><p class="gallery-sub">Sustituir imagen</p></div></div>
+        <div class="gallery-item"><div class="gallery-item-inner"><div class="gallery-dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><p class="gallery-label">PLANTILLA 03</p><p class="gallery-sub">Sustituir imagen</p></div></div>
+        <div class="gallery-item"><div class="gallery-item-inner"><div class="gallery-dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><p class="gallery-label">PLANTILLA 04</p><p class="gallery-sub">Sustituir imagen</p></div></div>
+        <div class="gallery-item"><div class="gallery-item-inner"><div class="gallery-dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><p class="gallery-label">PLANTILLA 05</p><p class="gallery-sub">Sustituir imagen</p></div></div>
+        <div class="gallery-item"><div class="gallery-item-inner"><div class="gallery-dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><p class="gallery-label">PLANTILLA 06</p><p class="gallery-sub">Sustituir imagen</p></div></div>
+        <div class="gallery-item"><div class="gallery-item-inner"><div class="gallery-dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><p class="gallery-label">PLANTILLA 07</p><p class="gallery-sub">Sustituir imagen</p></div></div>
+        <div class="gallery-item"><div class="gallery-item-inner"><div class="gallery-dot"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><p class="gallery-label">PLANTILLA 08</p><p class="gallery-sub">Sustituir imagen</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="faq-wrap">
+        <div class="faq-header section-header">
+          <p class="section-label">// FAQ</p>
+          <h2 class="section-title">Preguntas Frecuentes</h2>
+          <p class="section-desc" style="max-width:100%">Resolvemos tus dudas sobre ARMORY, el reproductor de música online sin anuncios.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-question">¿ARMORY es gratis y sin anuncios?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Sí. ARMORY es un reproductor de música online 100% gratis, sin anuncios, sin compras integradas y sin suscripciones. Una experiencia premium sin pagar ni un céntimo.</div></div></div>
+          <div class="faq-item"><button class="faq-question">¿Cuánto pesa la APK de ARMORY?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">La APK de ARMORY pesa entre 30 y 50 MB, una descarga ligera y rápida de instalar en cualquier Android moderno.</div></div></div>
+          <div class="faq-item"><button class="faq-question">¿Necesito conexión a internet?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Sí. ARMORY es un reproductor de música online basado en streaming, por lo que requiere conexión a internet para reproducir tu música sin interrupciones.</div></div></div>
+          <div class="faq-item"><button class="faq-question">¿Por qué elegir ARMORY?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">ARMORY combina streaming de alta calidad, una experiencia premium sin anuncios y un diseño dorado y minimalista que ningún otro reproductor ofrece gratis. Sin interrupciones, sin tracking, sin compromisos.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="section section-bg">
+    <div class="container">
+      <div class="download-card">
+        <div class="rel">
+          <p class="download-label">// DESCARGA OFICIAL</p>
+          <h2 class="download-title">Equípate con <span class="text-gradient">ARMORY</span></h2>
+          <p class="download-desc">Descarga la APK gratis y disfruta de música online sin anuncios, con experiencia premium real. Instalación rápida y segura en tu Android.</p>
+          <a href="#" download class="btn btn-primary btn-lg">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar APK · v2.0
+          </a>
+          <p class="download-note">30-50 MB · ANDROID · 100% GRATIS</p>
+        </div>
+      </div>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  <div class="footer-links">
-    <a href="#">Instagram</a>
-    <a href="#">Twitter</a>
-    <a href="#">Contacto</a>
-    <a href="#">Política de Privacidad</a>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">ARMORY</div>
+      <p class="footer-copy">© 2026 ARMORY · Todos los derechos reservados.</p>
+    </div>
   </div>
-  <p class="footer-copy">Copyright 2026 © ARMORY. Todos los derechos reservados.</p>
 </footer>
 
 <script>
-  // Script del acordeón FAQ
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
