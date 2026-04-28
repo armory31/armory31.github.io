@@ -4,10 +4,15 @@ import path from "path";
 
 export default defineConfig({
   base: "/",
+  root: ".",
   plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+    dedupe: ["react", "react-dom"],
+  },
+  build: {
+    outDir: "dist",
   },
 });
