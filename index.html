@@ -23,20 +23,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background-color: var(--negro); color: var(--blanco); overflow-x: hidden; width: 100%; }
- 
+
     header { position: absolute; top: 0; left: 0; width: 100%; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 4rem; }
     .logo { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 900; color: var(--blanco); text-decoration: none; letter-spacing: 2px; }
     .menu-links { display: flex; gap: 3rem; list-style: none; }
     .menu-links a { color: var(--blanco); text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: color 0.3s; }
     .menu-links a:hover { color: var(--dorado); }
- 
+
     .btn { display: inline-block; padding: 1rem 3rem; text-decoration: none; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 2px; border: 1px solid var(--dorado); transition: all 0.4s; cursor: pointer; }
     .btn-dorado { background: var(--dorado); color: var(--negro); }
     .btn-dorado:hover { background: transparent; color: var(--dorado); }
     .btn-outline { background: transparent; color: var(--dorado); }
     .btn-outline:hover { background: var(--dorado); color: var(--negro); }
- 
-    .hero { height: 100vh; width: 100%; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; background: url('https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat; }
+
+    .hero { height: 100vh; width: 100%; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; background: url('diseñoArmory.png') center/cover no-repeat; }
     .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5,5,5,0.75); z-index: 1; }
     .hero-content { position: relative; z-index: 2; padding: 0 1.5rem; width: 100%; }
     .hero-subtitle { display: none; }
@@ -44,14 +44,14 @@
     .hero-title .outline { display: block; color: transparent; -webkit-text-stroke: 1px var(--dorado); }
     .hero-desc { color: #a0a0a0; font-size: 1rem; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8; }
     .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
- 
+
     .marquee-wrapper { width: 100%; overflow: hidden; padding: 1.5rem 0; display: flex; white-space: nowrap; border-top: 1px solid rgba(212,175,55,0.2); border-bottom: 1px solid rgba(212,175,55,0.2); }
     .marquee-wrapper.gold { background: var(--dorado); }
     .marquee-content { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(1.2rem, 4vw, 2rem); text-transform: uppercase; letter-spacing: 2px; animation: scroll 20s linear infinite; display: inline-block; color: var(--negro); }
     .marquee-wrapper:not(.gold) .marquee-content { color: var(--dorado); }
     .marquee-content span { margin: 0 2rem; }
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
- 
+
     .split { display: flex; flex-wrap: wrap; width: 100%; border-bottom: 1px solid rgba(212,175,55,0.2); }
     .split > div { width: 50%; min-height: 70vh; }
     .split-text { display: flex; flex-direction: column; justify-content: center; padding: 6rem 10%; background: var(--negro); }
@@ -61,7 +61,7 @@
     .split-image img { width: 100%; height: 100%; max-height: 70vh; object-fit: contain; object-position: center; display: block; }
     .reverse { flex-direction: row-reverse; }
     .reverse .split-image { border-left: none; border-right: 1px solid rgba(212,175,55,0.2); }
- 
+
     .features-section { padding: 7rem 4rem; background: var(--negro); border-bottom: 1px solid rgba(212,175,55,0.2); }
     .features-header { font-family: 'Orbitron', sans-serif; font-size: clamp(1.5rem, 3vw, 2.5rem); text-transform: uppercase; color: var(--blanco); text-align: center; margin-bottom: 4rem; letter-spacing: 2px; }
     .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 900px; margin: 0 auto; }
@@ -71,7 +71,7 @@
     .feature-icon svg { width: 1.75rem; height: 1.75rem; fill: none; stroke: var(--dorado); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
     .feature-item:hover .feature-icon svg { stroke: var(--negro); }
     .feature-name { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--blanco); }
- 
+
     .faq-section { padding: 7rem 4rem; max-width: 800px; margin: 0 auto; }
     .faq-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); text-transform: uppercase; color: var(--blanco); margin-bottom: 4rem; text-align: center; }
     .faq-item { border-bottom: 1px solid rgba(212,175,55,0.2); }
@@ -83,17 +83,17 @@
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
     .faq-answer-inner { color: #a0a0a0; font-size: 0.95rem; line-height: 1.8; padding-bottom: 1.5rem; }
     .faq-item.open .faq-answer { max-height: 200px; }
- 
+
     .giant-cta { padding: 10rem 1.5rem; text-align: center; background: var(--negro); border-top: 1px solid rgba(212,175,55,0.2); }
     .giant-cta-title { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 7vw, 6rem); text-transform: uppercase; color: var(--blanco); line-height: 1.1; margin-bottom: 3rem; }
     .giant-cta-title .outline { color: transparent; -webkit-text-stroke: 1px var(--dorado); display: block; }
- 
+
     footer { padding: 3rem 1.5rem; text-align: center; border-top: 1px solid rgba(212,175,55,0.2); }
     .footer-links { display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
     .footer-links a { color: #555; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
     .footer-links a:hover { color: var(--dorado); }
     .footer-copy { color: #333; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
- 
+
     @media (max-width: 900px) {
       header { padding: 1.5rem; }
       .menu-links { display: none; }
@@ -111,7 +111,7 @@
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6DG786J" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
- 
+
 <header>
   <a href="#top" class="logo">ARMORY</a>
   <ul class="menu-links">
@@ -121,9 +121,9 @@
   </ul>
   <a href="#descargar" class="btn btn-outline">Descargar APK</a>
 </header>
- 
+
 <main id="top">
- 
+
   <section class="hero">
     <div class="hero-content">
       <span class="hero-subtitle">v2.0 · Android · Gratis</span>
@@ -135,13 +135,13 @@
       </div>
     </div>
   </section>
- 
+
   <div class="marquee-wrapper">
     <div class="marquee-content">
       <span>ARMORY - LIVE MUSIC</span><span>SIN ANUNCIOS</span><span>ANDROID APK</span><span>ARMORY - LIVE MUSIC</span><span>SIN ANUNCIOS</span><span>ANDROID APK</span><span>ARMORY - LIVE MUSIC</span><span>SIN ANUNCIOS</span><span>ANDROID APK</span>
     </div>
   </div>
- 
+
   <section id="experiencia" class="split">
     <div class="split-text">
       <h2>Streaming de alta calidad sin anuncios</h2>
@@ -152,7 +152,7 @@
       <img src="capturaApp.jpg" alt="ARMORY reproductor de música reproduciendo canción en Android" />
     </div>
   </section>
- 
+
   <section class="split reverse">
     <div class="split-text">
       <h2>Diseño dorado minimalista</h2>
@@ -163,13 +163,13 @@
       <img src="capturaPlaylist.jpg" alt="ARMORY listas de reproducción personalizadas en Android" />
     </div>
   </section>
- 
+
   <div class="marquee-wrapper gold">
     <div class="marquee-content">
       <span>LA MAGIA DE LA MÚSICA LLEVADA A SU MÁXIMA EXPRESIÓN</span><span>LA MAGIA DE LA MÚSICA LLEVADA A SU MÁXIMA EXPRESIÓN</span><span>LA MAGIA DE LA MÚSICA LLEVADA A SU MÁXIMA EXPRESIÓN</span>
     </div>
   </div>
- 
+
   <section id="caracteristicas" class="features-section">
     <h3 class="features-header">Tecnología Premium Gratuita</h3>
     <div class="features-grid">
@@ -199,7 +199,7 @@
       </div>
     </div>
   </section>
- 
+
   <section id="faq" class="faq-section">
     <h2 class="faq-title">Preguntas Frecuentes</h2>
     <div class="faq-list">
@@ -225,14 +225,14 @@
       </div>
     </div>
   </section>
- 
+
   <section id="descargar" class="giant-cta">
     <h2 class="giant-cta-title"><span class="outline">Equípate</span> con ARMORY</h2>
     <a href="#" download class="btn btn-dorado">Descargar APK · v2.0</a>
   </section>
- 
+
 </main>
- 
+
 <footer>
   <div class="footer-links">
     <a href="#">Instagram</a>
@@ -242,7 +242,7 @@
   </div>
   <p class="footer-copy">Copyright 2026 © ARMORY. Todos los derechos reservados.</p>
 </footer>
- 
+
 <script>
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
