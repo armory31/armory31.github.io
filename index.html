@@ -17,168 +17,305 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   
   <style>
-    /* VARIABLES Y RESETEO RADICAL */
+  /* VARIABLES Y RESETEO RADICAL */
+
     :root {
+
       --negro: #050505;
+
       --dorado: #d4af37;
+
       --blanco: #f5f5f5;
+
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html { scroll-behavior: smooth; }
+
     body { 
+
       font-family: 'Inter', sans-serif; 
+
       background-color: var(--negro); 
+
       color: var(--blanco); 
+
       overflow-x: hidden;
+
       width: 100%; /* Evita el scroll horizontal */
+
     }
+
     
+
     /* NAVEGACIÓN TIPO RUBÉN HIDALGO */
+
     header {
+
       position: absolute; top: 0; left: 0; width: 100%; z-index: 100;
+
       display: flex; justify-content: space-between; align-items: center;
+
       padding: 2rem 4rem;
+
     }
+
     .logo {
+
       font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 900;
+
       color: var(--blanco); text-decoration: none; letter-spacing: 2px;
+
     }
+
     .menu-links { display: flex; gap: 3rem; list-style: none; }
+
     .menu-links a { 
+
       color: var(--blanco); text-decoration: none; text-transform: uppercase; 
+
       font-size: 0.8rem; letter-spacing: 1px; transition: color 0.3s;
+
     }
+
     .menu-links a:hover { color: var(--dorado); }
+
     
+
     /* BOTONES */
+
     .btn {
+
       display: inline-block; padding: 1rem 3rem; text-decoration: none; text-transform: uppercase;
+
       font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 2px;
+
       border: 1px solid var(--dorado); transition: all 0.4s;
+
     }
+
     .btn-dorado { background: var(--dorado); color: var(--negro); }
+
     .btn-dorado:hover { background: transparent; color: var(--dorado); }
+
     .btn-outline { background: transparent; color: var(--dorado); }
+
     .btn-outline:hover { background: var(--dorado); color: var(--negro); }
 
+
+
     /* SECCIÓN HERO (100% PANTALLA) */
+
     .hero {
+
       height: 100vh; width: 100%; position: relative;
+
       display: flex; align-items: center; justify-content: center; text-align: center;
+
       background: url('https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+
     }
+
     .hero::after {
+
       content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+
       background: rgba(5, 5, 5, 0.75); z-index: 1; 
+
     }
+
     .hero-content { position: relative; z-index: 2; padding: 0 1.5rem; width: 100%; }
+
     .hero-subtitle {
+
       color: var(--dorado); font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; display: block;
+
     }
+
     .hero-title {
+
       font-family: 'Orbitron', sans-serif; font-size: clamp(2.2rem, 8vw, 6rem); 
+
       line-height: 1.1; text-transform: uppercase; margin-bottom: 2rem; color: var(--blanco);
+
     }
+
     .hero-title span { display: block; color: transparent; -webkit-text-stroke: 1px var(--dorado); }
 
+
+
     /* SECCIONES DIVIDIDAS (EDGE TO EDGE) */
+
     .rh-split { display: flex; flex-wrap: wrap; width: 100%; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+
     .rh-split > div { width: 50%; min-height: 70vh; }
+
     
+
     .rh-text {
+
       display: flex; flex-direction: column; justify-content: center;
+
       padding: 6rem 10%; background: var(--negro);
+
     }
+
     .rh-text h2 {
+
       font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 4vw, 3.5rem);
+
       color: var(--blanco); text-transform: uppercase; line-height: 1.2; margin-bottom: 1.5rem;
+
     }
+
     .rh-text p { color: #a0a0a0; font-size: 1rem; line-height: 1.8; margin-bottom: 3rem; }
+
     
+
     .rh-image {
+
       background: #111; display: flex; align-items: center; justify-content: center;
+
       color: var(--dorado); font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;
+
       border-left: 1px solid rgba(212, 175, 55, 0.2);
+
     }
+
     .reverse { flex-direction: row-reverse; }
+
     .reverse .rh-image { border-left: none; border-right: 1px solid rgba(212, 175, 55, 0.2); }
 
+
+
     /* CINTAS ANIMADAS (MARQUEE) */
+
     .marquee {
+
       width: 100%; overflow: hidden; background: var(--dorado); color: var(--negro);
+
       padding: 1.5rem 0; display: flex; white-space: nowrap;
+
     }
+
     .marquee-content {
+
       font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(1.2rem, 4vw, 2rem);
+
       text-transform: uppercase; letter-spacing: 2px;
+
       animation: scroll 20s linear infinite; display: inline-block;
+
     }
+
     .marquee-content span { margin: 0 2rem; }
+
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
+
+
     /* CONTACTO / DESCARGA FULL WIDTH */
+
     .cta-full {
+
       padding: 8rem 1.5rem; text-align: center; background: var(--negro); width: 100%;
+
     }
+
     .cta-full h2 {
+
       font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem);
+
       color: var(--blanco); text-transform: uppercase; margin-bottom: 3rem; line-height: 1.1;
+
     }
+
+
 
     /* FOOTER */
+
     footer {
+
       padding: 3rem 1.5rem; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2); width: 100%;
+
     }
+
     .footer-email {
+
       font-family: 'Orbitron', sans-serif; font-size: clamp(1.2rem, 4vw, 1.5rem); color: var(--dorado); 
+
       text-decoration: none; display: block; margin-bottom: 1.5rem;
+
     }
+
     .footer-copy { color: #555; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
-/* =========================================
-   RESPONSIVE (MÓVILES Y TABLETS PEQUEÑAS)
-   ========================================= */
-@media (max-width: 900px) { 
-  header { 
-    padding: 1.5rem; 
-  }
-  .menu-links { 
-    display: none; 
-  } 
 
-  /* FIX: Forzar apilamiento vertical puro y anular el row-reverse para evitar roturas de layout */
-  .rh-split, 
-  .reverse { 
-    flex-direction: column; 
-  }
 
-  .rh-split > div { 
-    width: 100%; 
-    min-height: auto; /* Anula el 70vh fijo en móviles */
-  }
-  
-  .rh-text { 
-    padding: 4rem 2rem; 
-    text-align: center; /* Centrado en móviles funciona mejor visualmente */
-    align-items: center;
-  }
-  
-  .rh-image { 
-    min-height: 40vh; /* Altura mínima para que la imagen se vea bien */
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-  }
-  
-  /* FIX: Limpiar los bordes residuales de la clase reverse en móvil */
-  .reverse .rh-image { 
-    border-right: none; 
-    border-left: none;
-  }
-  
-  .cta-full {
-    padding: 5rem 1.5rem;
-  }
-}
+
+    /* =========================================
+
+       RESPONSIVE (MÓVILES Y TABLETS PEQUEÑAS)
+
+       ========================================= */
+
+    @media (max-width: 900px) { 
+
+      header { padding: 1.5rem; }
+
+      .menu-links { display: none; } 
+
+      
+
+      .rh-split > div { 
+
+        width: 100%; 
+
+        min-height: auto; /* Anula el 70vh fijo en móviles */
+
+      }
+
+      
+
+      .rh-text { 
+
+        padding: 4rem 2rem; 
+
+        text-align: center; /* Centrado en móviles funciona mejor visualmente */
+
+        align-items: center;
+
+      }
+
+      
+
+      .rh-image { 
+
+        min-height: 40vh; /* Altura mínima para que la imagen se vea bien */
+
+        border-left: none;
+
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+
+      }
+
+      
+
+      .reverse .rh-image { 
+
+        border-right: none; 
+
+      }
+
+      
+
+      .cta-full {
+
+        padding: 5rem 1.5rem;
+
+      }
+
+    }
   </style>
 </head>
 <body>
