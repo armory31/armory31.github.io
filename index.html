@@ -17,172 +17,156 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   
   <style>
+    /* VARIABLES Y RESETEO RADICAL */
     :root {
-      --bg: #0a0a0a;
-      --card: #121212;
-      --border: hsl(43 30% 18%);
-      --primary: hsl(43 74% 52%);
-      --primary-hover: hsl(45 95% 65%);
-      --foreground: hsl(30 20% 95%);
-      --muted: hsl(43 15% 65%);
-      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --negro: #050505;
+      --dorado: #d4af37;
+      --blanco: #f5f5f5;
     }
-    
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { 
       font-family: 'Inter', sans-serif; 
-      background-color: var(--bg); 
-      color: var(--foreground); 
-      min-height: 100vh; 
-      line-height: 1.6; 
+      background-color: var(--negro); 
+      color: var(--blanco); 
       overflow-x: hidden;
+      width: 100%; /* Evita el scroll horizontal */
     }
     
-    h1, h2, h3, .font-display { font-family: 'Orbitron', sans-serif; }
-    a { text-decoration: none; color: inherit; }
+    /* NAVEGACIÓN TIPO RUBÉN HIDALGO */
+    header {
+      position: absolute; top: 0; left: 0; width: 100%; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 2rem 4rem;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 900;
+      color: var(--blanco); text-decoration: none; letter-spacing: 2px;
+    }
+    .menu-links { display: flex; gap: 3rem; list-style: none; }
+    .menu-links a { 
+      color: var(--blanco); text-decoration: none; text-transform: uppercase; 
+      font-size: 0.8rem; letter-spacing: 1px; transition: color 0.3s;
+    }
+    .menu-links a:hover { color: var(--dorado); }
     
     /* BOTONES */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; 
-      font-family: 'Orbitron', sans-serif; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; cursor: pointer; transition: var(--transition); border: none;
-      padding: 1rem 2.5rem; font-size: 0.9rem; border-radius: 2px;
+      display: inline-block; padding: 1rem 3rem; text-decoration: none; text-transform: uppercase;
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 2px;
+      border: 1px solid var(--dorado); transition: all 0.4s;
     }
-    .btn-primary { background: var(--primary); color: var(--bg); }
-    .btn-primary:hover { background: var(--foreground); color: var(--bg); }
-    .btn-outline { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
-    .btn-outline:hover { background: var(--primary); color: var(--bg); }
-    
-    /* NAVEGACIÓN */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      backdrop-filter: blur(10px); background: rgba(10, 10, 10, 0.85);
-      border-bottom: 1px solid var(--border);
-      padding: 1.25rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .logo {
-      font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.5rem;
-      color: var(--primary); letter-spacing: 0.15em;
-    }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
-    .nav-links a:hover { color: var(--primary); }
-    .nav-contact { display: none; }
-    @media (min-width: 900px) { .nav-contact { display: flex; } }
-    @media (max-width: 900px) { .nav-links { display: none; } }
-    
-    /* CINTAS ANIMADAS (MARQUEE) */
-    .marquee-wrapper {
-      overflow: hidden; white-space: nowrap; display: flex; width: 100vw;
-      padding: 1.5rem 0; background: var(--bg); border-bottom: 1px solid var(--border);
-    }
-    .marquee-wrapper.gold { background: var(--primary); color: var(--bg); border: none; }
-    .marquee-content {
-      display: inline-block; animation: marquee 25s linear infinite;
-      font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.5rem; letter-spacing: 0.1em;
-    }
-    .marquee-content span { margin: 0 2rem; }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .btn-dorado { background: var(--dorado); color: var(--negro); }
+    .btn-dorado:hover { background: transparent; color: var(--dorado); }
+    .btn-outline { background: transparent; color: var(--dorado); }
+    .btn-outline:hover { background: var(--dorado); color: var(--negro); }
 
-    /* HERO */
+    /* SECCIÓN HERO (100% PANTALLA) */
     .hero {
-      padding: 12rem 2rem 6rem; text-align: center; max-width: 1400px; margin: 0 auto;
+      height: 100vh; width: 100%; position: relative;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      background: url('https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    }
+    .hero::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(5, 5, 5, 0.75); z-index: 1; 
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 1.5rem; width: 100%; }
+    .hero-subtitle {
+      color: var(--dorado); font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; display: block;
     }
     .hero-title {
-      font-size: clamp(3rem, 8vw, 7rem); line-height: 0.95; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: -0.02em;
+      font-family: 'Orbitron', sans-serif; font-size: clamp(2.2rem, 8vw, 6rem); 
+      line-height: 1.1; text-transform: uppercase; margin-bottom: 2rem; color: var(--blanco);
     }
-    .hero-title .outline {
-      color: transparent; -webkit-text-stroke: 2px var(--primary);
-    }
-    .hero-desc {
-      font-size: 1.1rem; color: var(--muted); max-width: 700px; margin: 0 auto 3rem; line-height: 1.8;
-    }
+    .hero-title span { display: block; color: transparent; -webkit-text-stroke: 1px var(--dorado); }
 
-    /* SECCIONES DIVIDIDAS (Estilo Bodas / Discotecas) */
-    .split {
-      display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--border);
+    /* SECCIONES DIVIDIDAS (EDGE TO EDGE) */
+    .rh-split { display: flex; flex-wrap: wrap; width: 100%; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+    .rh-split > div { width: 50%; min-height: 70vh; }
+    
+    .rh-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 10%; background: var(--negro);
     }
-    @media (min-width: 900px) {
-      .split { grid-template-columns: 1fr 1fr; }
-      .split.reverse { direction: rtl; }
-      .split.reverse > * { direction: ltr; }
+    .rh-text h2 {
+      font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 4vw, 3.5rem);
+      color: var(--blanco); text-transform: uppercase; line-height: 1.2; margin-bottom: 1.5rem;
     }
-    .split-text {
-      padding: 5rem 2rem; display: flex; flex-direction: column; justify-content: center;
+    .rh-text p { color: #a0a0a0; font-size: 1rem; line-height: 1.8; margin-bottom: 3rem; }
+    
+    .rh-image {
+      background: #111; display: flex; align-items: center; justify-content: center;
+      color: var(--dorado); font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;
+      border-left: 1px solid rgba(212, 175, 55, 0.2);
     }
-    @media (min-width: 900px) { .split-text { padding: 6rem 12%; } }
-    .split-title {
-      font-size: clamp(2rem, 4vw, 3.5rem); color: var(--primary); margin-bottom: 1.5rem; line-height: 1.1; text-transform: uppercase;
-    }
-    .split-desc {
-      color: var(--muted); font-size: 1.1rem; margin-bottom: 2.5rem; line-height: 1.8;
-    }
-    .split-image {
-      background: var(--card); min-height: 50vh; display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden; border-top: 1px solid var(--border);
-    }
-    @media (min-width: 900px) {
-      .split-image { border-top: none; border-left: 1px solid var(--border); }
-      .split.reverse .split-image { border-left: none; border-right: 1px solid var(--border); }
-    }
-    .img-placeholder {
-      width: 80%; aspect-ratio: 16/9; border: 1px dashed var(--primary);
-      display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;
-      color: var(--primary); font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
-      background: radial-gradient(circle at center, hsl(43 74% 52% / 0.05), transparent);
-    }
+    .reverse { flex-direction: row-reverse; }
+    .reverse .rh-image { border-left: none; border-right: 1px solid rgba(212, 175, 55, 0.2); }
 
-    /* GRID DE CARACTERÍSTICAS (Estilo "Hemos trabajado para") */
-    .features-section {
-      padding: 8rem 2rem; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    /* CINTAS ANIMADAS (MARQUEE) */
+    .marquee {
+      width: 100%; overflow: hidden; background: var(--dorado); color: var(--negro);
+      padding: 1.5rem 0; display: flex; white-space: nowrap;
     }
-    .features-header {
-      font-family: 'Orbitron', sans-serif; font-size: 1rem; color: var(--primary); letter-spacing: 0.2em; margin-bottom: 4rem; text-transform: uppercase;
+    .marquee-content {
+      font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(1.2rem, 4vw, 2rem);
+      text-transform: uppercase; letter-spacing: 2px;
+      animation: scroll 20s linear infinite; display: inline-block;
     }
-    .features-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); max-width: 1200px; margin: 0 auto;
-    }
-    @media (min-width: 768px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
-    .feature-item {
-      padding: 4rem 2rem; background: var(--bg); transition: var(--transition);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-    }
-    .feature-item:hover { background: var(--card); }
-    .feature-icon svg { width: 3rem; height: 3rem; fill: var(--primary); margin-bottom: 1.5rem; }
-    .feature-name { font-family: 'Orbitron', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--foreground); }
+    .marquee-content span { margin: 0 2rem; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* FAQ */
-    .faq-section { padding: 8rem 2rem; max-width: 800px; margin: 0 auto; }
-    .faq-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 4rem; text-transform: uppercase; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-question {
-      width: 100%; background: none; border: none; color: var(--foreground);
-      font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-align: left;
-      padding: 2rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      transition: var(--transition);
+    /* CONTACTO / DESCARGA FULL WIDTH */
+    .cta-full {
+      padding: 8rem 1.5rem; text-align: center; background: var(--negro); width: 100%;
     }
-    .faq-question:hover { color: var(--primary); }
-    .faq-chevron { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 2; transition: transform 0.3s; }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--primary); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-answer-inner { padding-bottom: 2rem; color: var(--muted); font-size: 1.05rem; line-height: 1.8; }
-    .faq-item.open .faq-answer { max-height: 300px; }
-
-    /* GIANT CTA (Estilo Footer Reserva) */
-    .giant-cta {
-      padding: 12rem 2rem; text-align: center; border-top: 1px solid var(--border);
-      background: radial-gradient(circle at 50% 100%, hsl(43 74% 52% / 0.1), transparent 60%);
+    .cta-full h2 {
+      font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--blanco); text-transform: uppercase; margin-bottom: 3rem; line-height: 1.1;
     }
-    .giant-cta-title { font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 3rem; text-transform: uppercase; }
 
     /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
-    .footer-links { margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-    .footer-links a { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; }
-    .footer-links a:hover { color: var(--primary); }
-    .footer-copy { color: hsl(43 15% 30%); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    footer {
+      padding: 3rem 1.5rem; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2); width: 100%;
+    }
+    .footer-email {
+      font-family: 'Orbitron', sans-serif; font-size: clamp(1.2rem, 4vw, 1.5rem); color: var(--dorado); 
+      text-decoration: none; display: block; margin-bottom: 1.5rem;
+    }
+    .footer-copy { color: #555; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* =========================================
+       RESPONSIVE (MÓVILES Y TABLETS PEQUEÑAS)
+       ========================================= */
+    @media (max-width: 900px) { 
+      header { padding: 1.5rem; }
+      .menu-links { display: none; } 
+      
+      .rh-split > div { 
+        width: 100%; 
+        min-height: auto; /* Anula el 70vh fijo en móviles */
+      }
+      
+      .rh-text { 
+        padding: 4rem 2rem; 
+        text-align: center; /* Centrado en móviles funciona mejor visualmente */
+        align-items: center;
+      }
+      
+      .rh-image { 
+        min-height: 40vh; /* Altura mínima para que la imagen se vea bien */
+        border-left: none;
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+      }
+      
+      .reverse .rh-image { 
+        border-right: none; 
+      }
+      
+      .cta-full {
+        padding: 5rem 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
