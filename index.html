@@ -134,39 +134,51 @@
       text-decoration: none; display: block; margin-bottom: 1.5rem;
     }
     .footer-copy { color: #555; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+/* =========================================
+   RESPONSIVE (MÓVILES Y TABLETS PEQUEÑAS)
+   ========================================= */
+@media (max-width: 900px) { 
+  header { 
+    padding: 1.5rem; 
+  }
+  .menu-links { 
+    display: none; 
+  } 
 
-    /* =========================================
-       RESPONSIVE (MÓVILES Y TABLETS PEQUEÑAS)
-       ========================================= */
-    @media (max-width: 900px) { 
-      header { padding: 1.5rem; }
-      .menu-links { display: none; } 
-      
-      .rh-split > div { 
-        width: 100%; 
-        min-height: auto; /* Anula el 70vh fijo en móviles */
-      }
-      
-      .rh-text { 
-        padding: 4rem 2rem; 
-        text-align: center; /* Centrado en móviles funciona mejor visualmente */
-        align-items: center;
-      }
-      
-      .rh-image { 
-        min-height: 40vh; /* Altura mínima para que la imagen se vea bien */
-        border-left: none;
-        border-top: 1px solid rgba(212, 175, 55, 0.2);
-      }
-      
-      .reverse .rh-image { 
-        border-right: none; 
-      }
-      
-      .cta-full {
-        padding: 5rem 1.5rem;
-      }
-    }
+  /* FIX: Forzar apilamiento vertical puro y anular el row-reverse para evitar roturas de layout */
+  .rh-split, 
+  .reverse { 
+    flex-direction: column; 
+  }
+
+  .rh-split > div { 
+    width: 100%; 
+    min-height: auto; /* Anula el 70vh fijo en móviles */
+  }
+  
+  .rh-text { 
+    padding: 4rem 2rem; 
+    text-align: center; /* Centrado en móviles funciona mejor visualmente */
+    align-items: center;
+  }
+  
+  .rh-image { 
+    min-height: 40vh; /* Altura mínima para que la imagen se vea bien */
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  
+  /* FIX: Limpiar los bordes residuales de la clase reverse en móvil */
+  .reverse .rh-image { 
+    border-right: none; 
+    border-left: none;
+  }
+  
+  .cta-full {
+    padding: 5rem 1.5rem;
+  }
+}
   </style>
 </head>
 <body>
