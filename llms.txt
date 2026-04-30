@@ -1,0 +1,31 @@
+# ARMORY
+
+> ARMORY es el reproductor de música online sin anuncios para Android. Streaming de alta calidad, listas de reproducción personalizadas y una experiencia premium 100% gratis.
+
+## Descripción
+
+ARMORY es una aplicación Android gratuita que permite reproducir música online en streaming de alta calidad sin interrupciones publicitarias. Ofrece listas de reproducción personalizadas, descubrimiento de nueva música y un diseño minimalista negro y dorado optimizado para no cansar la vista.
+
+## Características principales
+
+- Streaming de música online en alta fidelidad
+- Sin anuncios ni interrupciones
+- Listas de reproducción personalizadas
+- Rendimiento optimizado para Android
+- Diseño dorado minimalista
+- Descubrimiento de nueva música
+- 100% gratuito, sin compras integradas ni suscripciones
+
+## Información
+
+- Versión: 0.8-beta
+- Plataforma: Android
+- Tamaño: 30-50 MB
+- Precio: Gratuito
+- Descargas: 50K+
+- Valoración media: 4.9★
+
+## URLs
+
+- Web oficial: https://armory31.github.io
+- Descarga APK: https://armory31.github.io/app-debug.apk
