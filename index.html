@@ -122,6 +122,96 @@
   color: #c8c8c8 !important;
   transition: color 0.4s;
 }
+    /* SUGERENCIAS */
+.suggestions-section { 
+  padding: 7rem 4rem; 
+  background: var(--negro); 
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+
+.suggestions-title { 
+  font-family: 'Orbitron', sans-serif; 
+  font-size: clamp(1.8rem, 4vw, 3rem); 
+  text-transform: uppercase; 
+  color: var(--blanco); 
+  margin-bottom: 1rem; 
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.suggestions-title .outline { 
+  color: transparent; 
+  -webkit-text-stroke: 1px var(--dorado);
+}
+
+.suggestions-subtitle { 
+  color: #a0a0a0; 
+  font-size: 1rem; 
+  text-align: center; 
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+}
+
+.suggestions-form { 
+  max-width: 600px; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem;
+}
+
+.form-group label { 
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blanco); 
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea { 
+  background: #0d0d0d; 
+  border: 1px solid rgba(212,175,55,0.3); 
+  color: var(--blanco); 
+  padding: 1rem; 
+  font-family: 'Inter', sans-serif;
+  border-radius: 2px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-size: 1rem;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { 
+  color: #555;
+}
+
+.form-group input:focus,
+.form-group textarea:focus { 
+  outline: none;
+  border-color: var(--dorado);
+  box-shadow: 0 0 10px rgba(212,175,55,0.2);
+}
+
+.suggestions-form .btn { 
+  margin-top: 1rem;
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .suggestions-section { 
+    padding: 5rem 2rem; 
+  }
+  .suggestions-form { 
+    padding: 0 1rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -245,6 +335,35 @@
     <h2 class="giant-cta-title"><span class="outline">Equípate</span> con ARMORY</h2>
     <a href="app-debug.apk" download="ARMORY-v0.8-beta.apk" class="btn btn-dorado">Descargar APK · v0.8-beta</a>
   </section>
+<!-- SECCIÓN SUGERENCIAS -->
+<section id="sugerencias" class="suggestions-section">
+  <h2 class="suggestions-title">📝 <span class="outline">Envía</span> tu sugerencia</h2>
+  <p class="suggestions-subtitle">Tu opinión nos importa. Ayúdanos a mejorar ARMORY con tus ideas</p>
+
+  <form action="https://formspree.io/f/mlgzegvd" method="POST" class="suggestions-form">
+    
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="tu@email.com">
+    </div>
+
+    <div class="form-group">
+      <label for="sugerencia">Tu sugerencia</label>
+      <textarea id="sugerencia" name="sugerencia" rows="6" required placeholder="Cuéntanos tu idea..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-dorado">Enviar sugerencia</button>
+  </form>
+</section>
+<!-- FIN SECCIÓN SUGERENCIAS -->
+
+
+  
 <!-- RESEÑAS - pegar antes de <section id="faq"> -->
 <section class="reviews-section" style="padding:7rem 4rem;background:var(--negro);border-bottom:1px solid rgba(212,175,55,0.2);">
   <h2 style="font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,3vw,2.5rem);text-transform:uppercase;color:var(--blanco);text-align:center;margin-bottom:0.75rem;letter-spacing:2px;">Lo que dicen los usuarios</h2>
