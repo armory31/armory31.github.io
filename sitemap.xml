@@ -7,18 +7,21 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://armory31.github.io/#features</loc>
+    <loc>https://armory31.github.io/musica-sin-anuncios-android</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://armory31.github.io/#gallery</loc>
+    <loc>https://armory31.github.io/armory-vs-spotify</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://armory31.github.io/#download</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://armory31.github.io/descargar-apk-musica-android</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 </urlset>
