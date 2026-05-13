@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "cobalt-balancer-493416-g1",
+  "private_key_id": "13d5b119dd3d5583562b27159079cbcf8542b57f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCt6dzdBdWyA9Ry\nth+v5cDj7B0IxW3OikIq/Zy6ww9SWLfWx2jbPX2WZ3eUJnk/iyddgfVT5aB6M0ZQ\nnWLCIhu9M3QDaRDAXMepmridXoVfAR6jRsshoaCG7l2n5V6hjWeZYK+Vocx+3sFH\nZnChewoiWs2YmgYZsQDtrdP02GgwyeY8QcR52UEkOPCSnm9E/gTuK9Sh0pBkw+yG\nVudEwJEyMRqalX3JZ7U0+7COR4+5teKU3UxayzNWdyCM6+5XxbvkM020VVph+kUV\n9B4keitc7HnigfAzpmhH9s972NmoopurlhW3qYyRXvHgxLiZZLkznkDa0FSfmqar\na210QIcNAgMBAAECggEAULO6gTfha4tabOa1eo6/fSSGbpkK9PJ0dPWd4o58kCZK\nHNkI/9+fZQlbVHyr/AArQrl5KbbfSoV7phH6j4J7Y8c6GREKrHEBV+NLsv73Hdhr\nqrHBtjgFwUdgX3ZQ/N+cyPA0WlesCN1+TA8tyclKMRn42Mz0cryP5TsqJa68XpK2\nC75JlZUc5XKy2OF256PuR2AOinwwau1enqQfExVxb6h8FhGq8Z87L+Ra7X92i4Hv\nj+dGgqwG0a6oDTyMwEQ+pQK0CYiCB6WfVt4I23Hx2Tr0sCAItU9tmA84kcnUdVLM\nBjL4YRr010AXUhB1Sb50XCNMJShcdzcNMRYKLFQWEwKBgQDcBMrDy09ukTUiIndU\nuVzBTVrqaO5spq8ehDxFEYq1AYh/TAuUY3J3J2IoWRSdj1+66Y4+DqzhWQeX9bVg\nZnOgoC2hqPfRnmRO9ez+Jo01sFAH5+11a9iQdmQeLCHAyG6MoAoofHGWg6vtHCT7\n4LJY+mIou6bLu56MR0WPIzhVOwKBgQDKWtnL1NAQzYfn0CbWDGDfU6NjOXp98ojo\nY8Uz+pzaQd+zFjmqADjsdSsquoa9w69c29w4UvDY1piI91cQeucD3+BFZAWgO1H8\nvMhAAVYmrWqqtu6gwk5Z3LhG/l64WMhwBwN8KXECbiS0nsdzIXnlMyoEyDSjCSuq\nMlqyYFmwVwKBgE9tX3G9dMh6nU7cWG36mNSjw116UhBhQDjpDgT1Jzje+9LQtiF0\noT8ItbPRLNMQjkOgyxv2Gk0j4cznA/pwIe/rw21n3UcMQjQLLeo2KqYmJ04jWSMZ\nss28H7qQvgKlmNslb2VcP3lRwYBQt71CScA7a7I+xCEqczs7A45/7Xc/AoGAD4Px\nySgzH+aycfrKz4S5dMYz8+q3UqrjBnaH61le53k/jrq4hylnM/Iz8h3FMQ2tB4Cw\nHP13DBlALthQK6pQxkJHLurhZ4zE140eCZJQqbyIPjiyiU78tPUwh/j/CEF+dOCE\nyuNej+IkHFlET7aUYxeONDmpl4qfd3hO7fhnSBcCgYBO2d9Myaae4KDIuJQ1ucgT\nzhDYMXDZhhsdtfY/q8jRia4Nu9sPqUiXlvOFV9PDapLBL7/1EwH54HymhCND5vp2\nsRjQb8uPzFy8k4jHJq6xf+E3iVSNtIqYHS35jVrSpR/Na4tPQryBaJ+CE/KaFgIU\n2orsLDAGmvJdmCdjrpaZPw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "armory-indexing-bot@cobalt-balancer-493416-g1.iam.gserviceaccount.com",
+  "client_id": "112575299014757820685",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/armory-indexing-bot%40cobalt-balancer-493416-g1.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
