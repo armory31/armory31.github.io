@@ -1,0 +1,24 @@
+- name: Notify Google
+        env:
+          GOOGLE_JSON: ${{ secrets.GOOGLE_JSON }}
+        run: |
+          python -c "
+          import os, json, httplib2
+          from oauth2client.service_account import ServiceAccountCredentials
+          
+          # Cargar la llave desde el secreto de GitHub
+          key_data = json.loads(os.environ['GOOGLE_JSON'])
+          scopes = ['https://www.googleapis.com/auth/indexing']
+          endpoint = 'https://indexing.googleapis.com/v3/urlNotifications:publish'
+          
+          # Autenticar
+          creds = ServiceAccountCredentials.from_json_keyfile_dict(key_data, scopes=scopes)
+          http = creds.authorize(httplib2.Http())
+          
+          # La URL de tu web (Cámbiala por la real de Armory)
+          url = 'https://armory31.github.io/'
+          
+          body = json.dumps({'url': url, 'type': 'URL_UPDATED'})
+          resp, content = http.request(endpoint, method='POST', body=body)
+          print(f'Respuesta de Google: {resp.status}')
+          "
