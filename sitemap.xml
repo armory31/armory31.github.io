@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Página Principal -->
   <url>
     <loc>https://armory31.github.io/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+
+  <!-- Landing Estratégica 1 -->
   <url>
     <loc>https://armory31.github.io/musica-sin-anuncios-android/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Landing Estratégica 2 -->
   <url>
     <loc>https://armory31.github.io/armory-vs-spotify/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Landing Estratégica 3 -->
+  <url>
+    <loc>https://armory31.github.io/alternativas-spotify-android/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Landing Estratégica 4 -->
   <url>
     <loc>https://armory31.github.io/descargar-apk-musica-android/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
   </url>
+
 </urlset>
