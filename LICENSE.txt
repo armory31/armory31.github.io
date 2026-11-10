@@ -1,5 +1,5 @@
 Armory
-Copyright (C) 2026 Rubén
+Copyright (C) 2026 Equipo Desarrollo Armory Music
 
 Based on OpenTune:
 Copyright (C) Arturo254 and contributors
